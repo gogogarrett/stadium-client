@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     const userId = params.user_id
     this.get('phoenixSocket').connect(userId)
 
-    console.log(userId)
+    console.log(params)
 
     return userId
   },
@@ -23,6 +23,11 @@ export default Ember.Route.extend({
     // listen for game_offer
     channel.on("game_offer" , (data) => {
       controller.handleGameOffer(data)
+    })
+
+    channel.on("game_reject" , () => {
+      controller.set('gameRejected', true)
+      controller.handleGameReject()
     })
   }
 });

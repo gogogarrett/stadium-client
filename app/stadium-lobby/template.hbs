@@ -1,4 +1,16 @@
 Lobby!
 
 {{stadium-game-lobby
-  requestGameAction=(action 'requestGame')}}
+  scope="world"
+  requestGameAction=(action 'requestGame')
+  gameRejected=gameRejected}}
+
+{{stadium-game-lobby
+  scope="school"
+  requestGameAction=(action 'requestGame')
+  gameRejected=gameRejected}}
+
+{{stadium-game-lobby
+  scope="class"
+  requestGameAction=(action 'requestGame')
+  gameRejected=gameRejected}}

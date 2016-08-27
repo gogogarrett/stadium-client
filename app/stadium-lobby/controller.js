@@ -9,9 +9,13 @@ export default Ember.Controller.extend({
     this.transitionToRoute('game', gameData.game_id, this.get('model'))
   },
 
+  handleGameReject() {
+    console.log("Game Rejected")
+  },
+
   actions: {
-    requestGame() {
-      this.get('channel').push('request_game', {user_id: this.get('model'), scope: "world"})
+    requestGame(scope) {
+      this.get('channel').push('request_game', {user_id: this.get('model'), scope})
     }
   }
-});
+})

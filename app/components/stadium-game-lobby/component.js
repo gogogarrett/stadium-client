@@ -2,7 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['stadium-game-lobby'],
+
   click() {
-    this.get('requestGameAction')()
-  }
+    this.set('isWaiting', true)
+    const scope = this.get('scope')
+    this.get('requestGameAction')(scope)
+  },
 });
