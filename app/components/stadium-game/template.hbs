@@ -1,0 +1,9 @@
+<div class="stadium-game">
+  {{#each gameState.players as |player|}}
+    player: {{player.id}}
+    score: {{player.score}}
+    <br/>
+  {{/each}}
+
+  <button {{action "submitAnswerAction" 1}}>Submit Answer</button>
+</div>
