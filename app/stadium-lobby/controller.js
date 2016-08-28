@@ -6,11 +6,17 @@ export default Ember.Controller.extend({
   handleGameOffer(gameData) {
     this.get('stadiumGameState').set('gameData', gameData)
 
-    this.transitionToRoute('game', gameData.game_id, this.get('model'))
+    if (this.isGameMember(this.get('model'), gameData)) {
+      this.transitionToRoute('game', gameData.game_id, this.get('model'))
+    }
   },
 
   handleGameReject() {
     console.log("Game Rejected")
+  },
+
+  isGameMember(userId, gameData) {
+    return gameData.players.findBy("player_id", userId)
   },
 
   actions: {

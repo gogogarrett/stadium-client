@@ -6,9 +6,6 @@ export default Ember.Route.extend({
   model(params) {
     const userId = params.user_id
     this.get('phoenixSocket').connect(userId)
-
-    console.log(params)
-
     return userId
   },
 
